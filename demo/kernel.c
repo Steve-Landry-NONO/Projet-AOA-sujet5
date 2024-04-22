@@ -34,15 +34,21 @@ void kernel (unsigned n, float a[n][n], float b[n][n], float c[n][n]) {
 #else
 
 /* original */
-void kernel (unsigned n, float a[n][n], float b[n][n], float c[n][n]) {
-   int i, j, k;
+void kernel (unsigned n, const float a[n], const float b[n], float c[n][n]) {
+   
+  unsigned i, j;
 
-   for (i=0; i<n; i++)
-      for (j=0; j<n; j++) {
-         c[i][j] = 0.0f;
+  for (i=0; i<n; i++)
+    for (j=0; j<n; j++)
+       c[i][j] = 0.0;
 
-         for (k=0; k<n; k++)
-            c[i][j] += a[i][k] * b[k][j];
-      }
+  for (i=0; i<n; i++) {
+    for (j=0; j<n; j++) {
+       if (j == 0)
+          c[i][0] += exp (a[i] + b[j]);
+       else
+          c[i][j] += fmin (c[i][0], exp (a[i] + b[j]));
+    } 
+  }  
 }
 #endif

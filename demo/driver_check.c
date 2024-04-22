@@ -5,15 +5,14 @@
 extern uint64_t rdtsc ();
 
 // TODO: adjust for each kernel
-extern void kernel (unsigned n, float a[n][n], float b[n][n], float c[n][n]);
+extern void kernel (unsigned n, float a[n], float b[n], float c[n][n]);
 
 // TODO: adjust for each kernel
-static void init_array (int n, float a[n][n]) {
-   int i, j;
+static void init_array (int n, float a[n]) {
+   int i;
 
    for (i=0; i<n; i++)
-      for (j=0; j<n; j++)
-         a[i][j] = (float) rand() / RAND_MAX;
+      a[i] = (float) rand() / RAND_MAX;
 }
 
 // TODO: adjust for each kernel
