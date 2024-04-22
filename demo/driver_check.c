@@ -44,8 +44,8 @@ int main (int argc, char *argv[]) {
    const char *output_file_name = argv[2];
 
    /* allocate arrays. TODO: adjust for each kernel */
-   float (*a)[size] = malloc (size * size * sizeof a[0][0]);
-   float (*b)[size] = malloc (size * size * sizeof b[0][0]);
+   float (*a) = malloc (size * size * sizeof a[0]);
+   float (*b) = malloc (size * size * sizeof b[0]);
    float (*c)[size] = malloc (size * size * sizeof c[0][0]);
 
    /* init arrays */

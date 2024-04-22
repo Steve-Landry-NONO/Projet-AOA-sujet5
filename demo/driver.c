@@ -11,7 +11,7 @@ extern void kernel (unsigned n, float a[n], float b[n], float c[n][n]);
 
 // TODO: adjust for each kernel
 static void init_array (int n, float a[n]) {
-   int i, j;
+   int i;
 
    for (i=0; i<n; i++)
       a[i] = (float) rand() / RAND_MAX;
@@ -48,8 +48,8 @@ int main (int argc, char *argv[]) {
       unsigned i;
 
       /* allocate arrays. TODO: adjust for each kernel */
-      float (*a)[size] = malloc (size * sizeof a[0]);
-      float (*b)[size] = malloc (size * sizeof b[0]);
+      float (*a) = malloc (size * sizeof a[0]);
+      float (*b) = malloc (size * sizeof b[0]);
       float (*c)[size] = malloc (size * size * sizeof c[0][0]);
 
       /* init arrays */

@@ -48,8 +48,8 @@ int main (int argc, char *argv[]) {
       unsigned i;
 
       /* allocate arrays. TODO: adjust for each kernel */
-      float (*a)[size] = malloc (size * sizeof a[0]);
-      float (*b)[size] = malloc (size * sizeof b[0]);
+      float (*a) = malloc (size * sizeof a[0]);
+      float (*b) = malloc (size * sizeof b[0]);
       float (*c)[size] = malloc (size * size * sizeof c[0][0]);
 
       /* init arrays */
